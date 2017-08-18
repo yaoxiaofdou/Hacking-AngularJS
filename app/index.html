@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="favicon.ico" />
+    <!--去掉拨号链接-->
+    <meta name="renderer" content="webkit">
+    <title>angularJs-AMD</title>
+    <!-- script -->
+    <script data-main="main.js" src="./asset/requirejs/require.js" charset="utf-8"></script>
+    <!--[if lte IE 8]>
+    <script type="text/javascript">
+        alert('您的浏览器版本太低了');
+        window.opener = null;
+        window.open('', '_self', '');
+        window.close();
+    </script>
+    <![endif]-->
+</head>
+<body>
+    <div ui-view></div>
+</body>
+</html>

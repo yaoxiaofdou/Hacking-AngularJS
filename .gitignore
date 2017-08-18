@@ -1,0 +1,6 @@
+/.idea
+/app/asset
+/node_modules
+/app/css/**/*.map
+/app/components/**/*.map
+/.sass-cache
