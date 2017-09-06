@@ -1,0 +1,22 @@
+<div class="qsAlertTree">
+    <div class="qsAlertTree__selectBtn">
+        <button class="btn btn-primary-plain"
+                ng-disabled="qsDisabled"
+                ng-click="qsAlertTreeHandleShow()">地区选择 ▼</button>
+    </div>
+    <div class="qsAlertTree__listPanel" ng-if="dialogSwitch">
+        <div class="qsAlertTree__listPanel__pppp">
+
+            <qs-alert-treeitem
+                qs-data="provincesData.country"
+                qs-model="ngModel"
+                level="0"
+            ></qs-alert-treeitem>
+
+        </div>
+        <div class="qsAlertTree__listPanel__BtnPanel">
+            <button class="btn btn-primary-plain" ng-click="saveqsAlertTree()">确定</button>
+            <button class="btn btn-primary-plain" ng-click="closeqsAlertTree()">取消</button>
+        </div>
+    </div>
+</div>

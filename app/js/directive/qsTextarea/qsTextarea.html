@@ -1,0 +1,11 @@
+<div class="qsTextarea" ng-class = "{'qsTextarea--active': requireChange }">
+    <!-- 富文本编辑器 -->
+    <summernote on-image-upload="imageUpload(files)" ng-model="ngModel" config="config" height="300"
+                editable="editable" editor="editor">
+        <span style="font-weight: bold;">{{ placeholder }}</span>
+    </summernote>
+    <!--
+      详细使用介绍地址：
+      https://github.com/summernote/angular-summernote#demo
+    -->
+</div>

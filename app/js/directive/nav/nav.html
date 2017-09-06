@@ -1,0 +1,11 @@
+<div class="haNav">
+    <ul class="nav haNav__menu">
+        <li class="nav-item" ng-repeat="nav in haData"
+            ng-click="handleChangeNav(nav)"
+            ng-class="[ nav.isActive ? 'active' : null ]">
+            <a ui-sref={{nav.href}}>
+                {{ nav.title }}
+            </a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,129 @@
+/*
+*   create by xiaofeng.yao
+*   time  2017.08.08.
+*   component qs-AlertTree
+*/
+.qsAlertTree{
+  position: relative;
+  z-index: 9;
+  .qsAlertTree__selectBtn{
+
+  }
+  .qsAlertTree__listPanel{
+    background-color:#fff;
+    position: absolute;
+    top:38px;
+    width:600px;
+    height:300px;
+    overflow:hidden;
+    box-shadow: 1px 2px 7px 1px #998;
+    border-radius:5px;
+    &:before{
+      content:'';
+      width:100%;
+      z-index: 3;
+      position: absolute;
+      top:0;
+      left:0;
+      box-shadow: 0px 0px 12px 3px #999;
+    }
+    .qsAlertTree__listPanel__pppp{
+      width:100%;
+      height:250px;
+      overflow:hidden;
+      .qsAlertTree__listPanel__pppp__itemPanle{
+        float:left;
+        display: inline-block;
+        width:150px;
+        height:248px;
+        border-right: 1px solid #d8d7d7;
+        transition:0.4s;
+        overflow-x: hidden;
+        .qsAlertTree__listPanel__pppp__item{
+          width: 100%;
+          min-height: 38px;
+          border-bottom: 1px solid #d8d7d7;
+          position: relative;
+          .qsAlertTree__listPanel__pppp__item__div{
+            width:100%;
+            min-height: 38px;
+            padding: 8px 0 0 8px;
+            margin:0;
+            .qsAlertTree__listPanel__pppp__item__span{
+              display: inline-block;
+              width: 60%;
+            }
+            .qsAlertTree__listPanel__pppp__item__ckb{
+              position: relative;
+              top: 2px;
+              vertical-align: top;
+              z-index: 10;
+              opacity: 0;
+            }
+            i{
+              position: absolute;
+              left: 0;
+              top: 0;
+            }
+            .active{
+              display: inline-block;
+            }
+          }
+          .qsAlertTree__listPanel__pppp__item__icon{
+            position: absolute;
+            top:12px;
+            right:8px;
+          }
+
+          &:hover{
+            background-color: #f3f3f3;
+            z-index: 2;
+          }
+
+        }
+        .qsAlertTree__listPanel__pppp__item--isActive{
+          ccolor: #337ab7;
+          font-size: 24px;
+          position: absolute;
+          top: -2px;
+          right: -22px;
+        }
+        .qsAlertTree__listPanel__pppp__item--dddel{
+          opacity:0;
+        }
+        .qsAlertTree__listPanel__pppp__item--isChecked{
+          background-color: #a2c1f9 !important;
+          color: #fff;
+        }
+        .qsAlertTree__listPanel__pppp__item--isSelected{
+          background-color: #b9b9b9 !important;
+        }
+      }
+      .dialogSum--one{
+        width:600px !important;
+      }
+      .dialogSum--two{
+        width:300px !important;
+      }
+      .dialogSum--three{
+        width:200px !important;
+      }
+      .dialogSum--four{
+        width:150px !important;
+      }
+
+    }
+    .qsAlertTree__listPanel__BtnPanel{
+      position: relative;
+      border-radius: 0 0 5px 5px;
+      width:100%;
+      height:50px;
+      text-align:center;
+      padding-top:8px;
+      box-shadow: 0px -1px 8px 0px #999;
+      .btn{
+        margin-right:10px;
+      }
+    }
+  }
+}

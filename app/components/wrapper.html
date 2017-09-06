@@ -1,13 +1,6 @@
-<!-- home -->
-<div>
-    <ul class="menu">
-        <li><a ui-sref="index.home">home</a></li>
-        <li><a ui-sref="index.login">login</a></li>
-    </ul>
-    <h1>wrapper</h1>
-
-    <h1>{{ title }}</h1>
-
-    <div ui-view></div>
-
+<div class="container ha-wrapper">
+    <div class="columns col-gapless">
+        <div ha-nav ha-data="haNavData" class="column col-2">col-6</div>
+        <div ui-view class="ha-wrapper-content column col-10"></div>
+    </div>
 </div>

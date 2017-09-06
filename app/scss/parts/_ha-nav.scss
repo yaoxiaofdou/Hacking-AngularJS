@@ -1,0 +1,11 @@
+.haNav{
+    $haNavWidth:16.67rem;
+    $haNavLiHeight:2.5rem;
+
+    .haNav__menu{
+        li{
+            text-align:center;
+            font-size: 1.4rem;            
+        }
+    }
+}

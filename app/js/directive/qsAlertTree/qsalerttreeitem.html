@@ -1,0 +1,51 @@
+<div>
+    <!-- 一个 item panle ng-if="provincesData.country.children.length > 0"
+        ng-class="{
+                 'dialogSum--two' : dialogSum == 2,
+                 'dialogSum--three' : dialogSum == 3,
+                 'dialogSum--four' : dialogSum == 4,
+                 }"
+    -->
+    <div class="qsAlertTree__listPanel__pppp__itemPanle dialogSum--two">
+        <div class="qsAlertTree__listPanel__pppp__item {{country.id}}"
+             ng-click="handleSetCountry($event,country,qsData);"
+             ng-class="{
+                        'qsAlertTree__listPanel__pppp__item--isChecked' : country.isChecked,
+                        'qsAlertTree__listPanel__pppp__item--isSelected' : country.isSelected && country.children.length >0
+                       }"
+             data-isLevel="{{ isLevel }}"
+             data-ng-repeat="country in qsData">
+            <div class="qsAlertTree__listPanel__pppp__item__div">
+                <span class="qsAlertTree__listPanel__pppp__item__span">{{ country.name }}</span>
+                <div class="qsAlertTree__listPanel__pppp__item__div__checkbox" style="position:relative;display: inline-block;vertical-align: top;">
+                    <input type="checkbox" class="qsAlertTree__listPanel__pppp__item__ckb"
+                           ng-model="country.isChecked"
+                           ng-click="handleItemChecked(country,qsData);"
+                    />
+                    <i ng-if="!country.isChecked && !country.isActive" class="iconfont icon-fuxuankuang"></i>
+                    <i ng-if="country.isChecked" class="iconfont icon-fuxuankuang3"></i>
+                    <i ng-if="country.isActive && !country.isChecked" class="iconfont icon-fuxuankuangwuzhankai-copy"></i>
+                    <!--<i ng-if="country.isActive"
+                       ng-class="{
+                            'qsAlertTree__listPanel__pppp__item&#45;&#45;dddel' : country.isChecked
+                       }"
+                       class="fa fa-check qsAlertTree__listPanel__pppp__item&#45;&#45;isActive"></i>-->
+                </div>
+            </div>
+            <i class="fa qsAlertTree__listPanel__pppp__item__icon"
+               ng-if=" country.children.length >0 "
+               ng-class="{
+                    'fa-angle-down'  : !country.isSelected,
+                    'fa-angle-right' : country.isSelected && country.children.length >0
+               }"
+            ></i>
+
+        </div>
+    </div>
+    <qs-alert-treeitem
+            ng-if="provincesData"
+            qs-data="provincesData"
+            qs-model="qsModel"
+            level="isLevel"
+    ></qs-alert-treeitem>
+</div>

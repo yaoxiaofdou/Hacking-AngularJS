@@ -5,11 +5,15 @@
 *************************************/
 define([
     'app',
+    '../js/directive/nav/nav.js'
 ], function (app) {
     'use strict';
-    app.controller('wrapperController', ['$scope', function ($scope) {
+    app.controller('wrapperController', ['$scope','$http',function ($scope,$http) {
     
-        $scope.title = '这是容器界面';
+        $http.get("/data/menu.json").then(function(res){
+            $scope.haNavData = res.data;
+        })
+
 
     }])
 });

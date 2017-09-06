@@ -8,7 +8,9 @@
 define([
     'angularAMD',
     'angular',
-    'angular-ui-router'
+    'jquery',
+    'angular-ui-router',
+    'angular-loading-bar',
   ], function (angularAMD) {
     'use strict';
     return angularAMD;

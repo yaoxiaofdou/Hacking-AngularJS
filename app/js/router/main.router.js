@@ -8,10 +8,12 @@
 define([
     'angular',
     'angularAMD',
-
-    // 主页
-    '../../components/home/home.router'
-
+    
+    // address tree
+    '../../components/haAlerttree/haalerttree.rotuer.js',
+    // block input
+    '../../components/haBlockinput/hablockinput.router.js',
+    
   ], function (angular, angularAMD) {
   
     var registerRoutes = function ($stateProvider, $urlRouterProvider) {

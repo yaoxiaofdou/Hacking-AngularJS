@@ -1,0 +1,20 @@
+<div class="haalerttree">
+    <h1 class="haalerttree__h1">Ha Block Input （ 字段删除输入框 ）</h1>
+    <h4 class="haalerttree__span">传递的参数配置表</h4>
+    <code>
+        ng-model="qsData"   <---------------    获取数据与最终接收数据的model        必须
+    </code>
+    <div class="haalerttree__demo">
+        <h4 class="haalerttree__span">组件演示：</h4>
+        <a ng-click="modelData()">赋值model</a>
+        <input type="text"
+            qs-block-delete-input
+            ng-model="qsData" />
+    </div>
+    <div class="haalerttree__demo">
+        <h4 class="haalerttree__span">当前数据：</h4>
+        <div>
+            {{ qsData }}
+        </div>
+    </div>
+</div>

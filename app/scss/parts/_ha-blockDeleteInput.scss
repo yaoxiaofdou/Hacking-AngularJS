@@ -1,0 +1,14 @@
+.qsBInput{
+  position:relative;
+  .qsBInput___input{
+
+  }
+  .qsBInput__del{
+    position: absolute;
+    display: inline-block;
+    width: 30px;
+    height: 20px;
+    top: -20px;
+    right: 0;
+  }
+}

@@ -1,0 +1,32 @@
+<div class="haalerttree">
+    <h1 class="haalerttree__h1">Ha Address Tree （ 地区选择插件 ）</h1>
+    <h4 class="haalerttree__span">传递的参数配置表</h4>
+    <code>
+        ng-model="modelArr"             <----------------------    最终接收数据的model        必须     <br/>    
+        qs-callback="treecallback"      <----------------------    确定选择后的回掉           可选      <br/>
+        qs-url="qsurl"                  <----------------------    传入的数据url              可选     <br/>
+        qs-treeinit="treeinit"          <----------------------    组件加载完事件             可选     <br/>
+        qs-data="alertData"             <----------------------    传入的数据源               可选        <br/>
+        qs-disabled="qsdisabled"        <----------------------    传入的是否禁用             可选   接收 boolean    
+    </code>
+    
+    <div class="haalerttree__demo">
+        <h4 class="haalerttree__span">组件演示：</h4>
+        <qs-alert-tree
+            ng-model="modelArr"             
+            qs-callback="treecallback"      
+            qs-url="qsurl"                  
+            qs-treeinit="treeinit"          
+            qs-data="alertData"             
+            qs-disabled="qsdisabled"        
+        ></qs-alert-tree>
+    </div>
+    <div class="haalerttree__demo">
+        <h4 class="haalerttree__span">当前数据：</h4>
+        <div>
+            {{ modelArr }}
+        </div>
+    </div>
+    
+
+</div>
