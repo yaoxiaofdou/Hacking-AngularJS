@@ -1,0 +1,170 @@
+<div class="qslist-item">
+
+    <!-- 没有复选框的模版 -->
+    <div ng-if="!qsCheckbox">
+        <!-- header -->
+        <div class="qslistitem__citem qslistitem__header">
+            <div class="qslistitem__citem__li qslistitem__header__li" data-ng-repeat="hedr in qsHeader" style="width:{{ 100 / qsHeader.length }}%;">
+                {{ hedr.name }}
+            </div>
+        </div>
+        <!-- list -->
+        <div class="qslistitem__citem qslistitem__content">
+            <div data-ng-repeat="item in qsData" class="qslistitem__content__tr">
+
+                <!--
+                    子集展开icon
+                -->
+                <span ng-if="item.children.length > 0" class="qslistitem__citem__Cicon" 
+                    ng-click="item.isActive = !item.isActive;">
+                    <i class="fa" ng-class="[ item.isActive ? 'fa-minus' : 'fa-plus' ]"></i>
+                </span>
+
+                <!--
+                    编辑功能通过:qs-edit 来控制，false关闭 
+                    双击打开编辑功能 
+                -->
+                <div ng-if="!qsEdit" class="qslistitem__citem__li qslistitem__content__td" data-ng-repeat="hedr in qsHeader" style="width:{{ 100 / qsHeader.length }}%;">
+                    <div ng-if="!item[hedr.key][0]['id']">
+                        {{ item[hedr.key] }}
+                    </div>
+                    <div ng-if="item[hedr.key][0]['id']">
+                        {{ item[hedr.key+'smodel']['name'] }}
+                    </div>
+                </div>
+                <!--
+                    编辑功能通过:qs-edit 来控制,true 打开
+                    双击打开编辑功能
+                    注：如果传入的是数组，则显示为下拉列表。
+                -->
+                <div ng-if="qsEdit"
+                    ng-dblclick="item[hedr.key + 'dbEdit'] = true;"
+                    class="qslistitem__citem__li qslistitem__content__td" 
+                    data-ng-repeat="hedr in qsHeader"
+                    style="width:{{ 100 / qsHeader.length }}%;">
+                    <span ng-if="!item[hedr.key + 'dbEdit'] && !item[hedr.key][0]['id']">
+                        {{ item[hedr.key] }}
+                    </span>
+                    <!-- 非数组显示为输入框 -->
+                    <div ng-if="!item[hedr.key][0]['id']">
+                        <input type="text"
+                            style="width:80%;"
+                            ng-if="item[hedr.key + 'dbEdit']"
+                            ng-blur="item[hedr.key + 'dbEdit'] = false;"
+                            ng-model="item[hedr.key]" />
+                    </div>
+                    <!-- 判断如果是数组，则显示为下拉列表 -->
+                    <div ng-if="item[hedr.key][0]['id']">
+                        <select ng-model="item[hedr.key+'smodel']"
+                                ng-options="trdata.name for trdata in item[hedr.key]">
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 判断--如果当前的列项的子列有数据，继续渲染 -->
+                <div ng-if="item.isActive && item.children.length >0">
+                    
+                    <div ha-table-item
+                        qs-checkbox="qsCheckbox"
+                        qs-data="item.children"
+                        qs-header="qsHeaderData"
+                        qs-header-index="qsHeaderListIndex"
+                        qs-edit="qsEdit"
+                        qs-model="qsModel"
+                   >
+                   </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 有复选框的模版 -->
+    <div ng-if="qsCheckbox">
+        <!-- header -->
+        <div class="qslistitem__citem qslistitem__header">
+            <div class="qslistitem__citem__li qslistitem__header__li" style="width:7%;">
+                <input type="checkbox" ng-model="qsAllcheckbox" ng-change="handleAllChecked(qsAllcheckbox,qsData)" />
+            </div>
+            <div class="qslistitem__citem__li qslistitem__header__li" data-ng-repeat="hedr in qsHeader" style="width:{{ 91 / qsHeader.length }}%;">
+                {{ hedr.name }}
+            </div>
+        </div>
+        <!-- list -->
+        <div class="qslistitem__citem qslistitem__content">
+            <div data-ng-repeat="item in qsData" class="qslistitem__content__tr">
+                <div ng-class="[ item.isCheckbox ? 'qslistitem__content__tr--active' : '' ]">
+                    <!--
+                        子集展开icon
+                    -->
+                    <span ng-if="item.children.length > 0" class="qslistitem__citem__Cicon" 
+                        ng-click="item.isActive = !item.isActive;">
+                        <i class="fa" ng-class="[ item.isActive ? 'fa-minus' : 'fa-plus' ]"></i>
+                    </span>
+
+                    <div class="qslistitem__citem__li qslistitem__content__td" style="width:7%;">
+                        <input type="checkbox" ng-model="item.isCheckbox" ng-change="handleCheckedLi(item,item.isCheckbox)" />
+                    </div>
+                    
+                    <!--
+                        编辑功能通过:qs-edit 来控制，false关闭 
+                        双击打开编辑功能 
+                    -->
+                    <div ng-if="!qsEdit" class="qslistitem__citem__li qslistitem__content__td" 
+                        data-ng-repeat="hedr in qsHeader" style="width:{{ 91 / qsHeader.length }}%;">
+                        <div ng-if="!item[hedr.key][0]['id']">
+                            {{ item[hedr.key] }}
+                        </div>
+                        <div ng-if="item[hedr.key][0]['id']">
+                            {{ item[hedr.key+'smodel']['name'] }}
+                        </div>
+                    </div>
+                    <!--
+                        编辑功能通过:qs-edit 来控制,true 打开
+                        双击打开编辑功能
+                        注：如果传入的是数组，则显示为下拉列表。
+                    -->
+                    <div ng-if="qsEdit"
+                        ng-dblclick="item[hedr.key + 'dbEdit'] = true;"
+                        class="qslistitem__citem__li qslistitem__content__td" 
+                        data-ng-repeat="hedr in qsHeader"
+                        style="width:{{ 91 / qsHeader.length }}%;">
+                        <span ng-if="!item[hedr.key + 'dbEdit'] && !item[hedr.key][0]['id']">
+                            {{ item[hedr.key] }}
+                        </span>
+                        <!-- 非数组显示为输入框 -->
+                        <div ng-if="!item[hedr.key][0]['id']">
+                            <input type="text"
+                                style="width:80%;"
+                                ng-if="item[hedr.key + 'dbEdit']"
+                                ng-blur="item[hedr.key + 'dbEdit'] = false;"
+                                ng-model="item[hedr.key]" />
+                        </div>
+                        <!-- 判断如果是数组，则显示为下拉列表 -->
+                        <div ng-if="item[hedr.key][0]['id']">
+                            <select ng-model="item[hedr.key+'smodel']"
+                                    ng-options="trdata.name for trdata in item[hedr.key]">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 判断--如果当前的列项的子列有数据，继续渲染 -->
+                <div ng-if="item.isActive && item.children.length >0">
+                    
+                    <div ha-table-item
+                        qs-checkbox="qsCheckbox"
+                        qs-data="item.children"
+                        qs-allcheckbox="qsAllcheckbox"
+                        qs-header="qsHeaderData"
+                        qs-header-index="qsHeaderListIndex"
+                        qs-edit="qsEdit"
+                        qs-model="qsModel"
+                   >
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

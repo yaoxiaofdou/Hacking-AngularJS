@@ -13,6 +13,8 @@ define([
     '../../components/haAlerttree/haalerttree.rotuer.js',
     // block input
     '../../components/haBlockinput/hablockinput.router.js',
+    // table
+    '../../components/haTable/haTable.router.js',
     
   ], function (angular, angularAMD) {
   

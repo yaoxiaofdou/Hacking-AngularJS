@@ -1,0 +1,41 @@
+<div class="haalerttree">
+    <h1 class="haalerttree__h1">Ha Table （ 表格 ）</h1>
+    <h4 class="haalerttree__span">传递的参数配置表</h4>
+    <code>
+        ng-model="qsData"   <---------------    获取数据与最终接收数据的model        必须
+    </code>
+    <div class="haalerttree__demo">
+        <h4 class="haalerttree__span">控制按钮：</h4>
+        <div>
+            <button class="btn btn-success" ng-click="checkbox = !checkbox">
+                复选框
+                <span ng-if="!checkbox">启用</span>
+                <span ng-if="checkbox">关闭</span>
+            </button>
+            <label for="">{{checkbox}}</label>
+        </div>
+        <div>
+            <button class="btn btn-success" ng-click="edit = !edit">
+                <span ng-if="!edit">编辑</span>
+                <span ng-if="edit">保存</span>
+            </button>
+            <label for="">{{edit}}</label>
+        </div>
+        <h4 class="haalerttree__span">组件演示：</h4>
+        <div ha-table 
+            qs-data="listData"
+            qs-header="listHeader"
+            qs-checkbox="checkbox"
+            qs-edit="edit"
+            qs-model="listmodel">
+        </div>
+    </div>
+
+    <div class="haalerttree__demo">
+        <h4 class="haalerttree__span">当前数据：</h4>
+        <div>
+            {{ listData }}
+        </div>
+    </div>
+
+</div>

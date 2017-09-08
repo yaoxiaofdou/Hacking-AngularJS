@@ -7,5 +7,9 @@
         "id":"m1024002",
         "title":"Block Input",
         "href":"index.haBlockinput"
+    },{
+        "id":"m1024003",
+        "title":"Table",
+        "href":"index.haTable"
     }
 ]
