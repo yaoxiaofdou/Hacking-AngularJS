@@ -35,4 +35,31 @@ define([
                 }
             }
         }])
+
+        let add = (...num)=>{
+            let sum = 0;
+            var count = (arr) => {
+                arr.forEach((item,index)=>{ 
+                    sum += item;
+                })
+                return sum;
+            }
+            count(num);
+            var allsum = function(...num2){
+                count(num2)
+                return allsum
+            }
+
+            allsum.valueOf = function(){
+                return sum
+            }
+
+            return allsum
+
+        }
+        
+        console.log(add(1,2,2)(3)(3))
+
+
+
 });
